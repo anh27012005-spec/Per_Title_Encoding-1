@@ -1,0 +1,33 @@
+input_video: data/input/video.mp4
+output_root: output
+
+duration_sec: 20
+fps: 30
+reference_resolution: [1920, 1080]
+reference_codec: ffv1
+
+resolutions:
+  - [640, 360]
+  - [1280, 720]
+  - [1920, 1080]
+
+bitrates_kbps: [400, 800, 1500, 2800]
+
+encoding:
+  codec: libx264
+  preset: medium
+  pixel_format: yuv420p
+  gop: 60
+  rate_control: capped_vbr
+  maxrate_ratio: 1.20
+  bufsize_ratio: 2.00
+  extra_args: []
+
+measurement:
+  vmaf_model: ""
+  threads: 0
+
+selection:
+  target_rungs: 4
+  min_bitrate_ratio: 1.35
+  min_vmaf_gain: 3.0
